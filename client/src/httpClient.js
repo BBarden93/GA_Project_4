@@ -19,7 +19,7 @@ httpClient.getCurrentUser = function() {
 }
 
 httpClient.logIn = function(fields) {
-    return this({method: 'post', url: '/api/users/login', data: fields})
+    return this({method: 'post', url: '/api/users/authenticate', data: fields})
     .then((serverResponse) => {
         console.log(serverResponse.data)
         const {token} = serverResponse.data 

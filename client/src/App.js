@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {Link, Route, Switch, Redirect} from 'react-router-dom';
 import httpClient from './httpClient.js';
-import Home from './views/Home.js';
-import LogIn from './views/LogIn.js';
-import SignUp from './views/SignUp.js';
+import Home from './views/Home.jsx';
+import LogIn from './views/LogIn.jsx';
+import LogOut from './views/LogOut'
+import SignUp from './views/SignUp.jsx';
+import NavBar from './views/NavBar.jsx'
+
 
 class App extends Component {
 
@@ -21,19 +24,15 @@ class App extends Component {
     return (
 
       <div className="App">
+
           {currentUser 
             ? (
               <div>{currentUser.name}</div>
             )
             : null
           }
-        <div>
-          <Link to="/">Home</Link>
-          {/* <Link to="/vip">VIP</Link> */}
-          <Link to="/login">Log In</Link>
-          <Link to="/signup">Sign Up</Link>
-          {/* <Link to="/logout">Log Out</Link> */}
-        </div>
+
+          <NavBar currentUser={currentUser} />
 
         <Switch>
             <Route path="/login" render={(routeProps) => {
@@ -41,16 +40,16 @@ class App extends Component {
             }} />
             
             <Route path="/signup" render={(routeProps) => {
-                return <SignUp {...routeProps} onSignupSuccess={this.onLoginSuccess.bind(this)}/>
+                return <SignUp {...routeProps} onSignUpSuccess={this.onLoginSuccess.bind(this)}/>
             }} />
             
-            {/* <Route path="/logout" render={() => {
+            <Route path="/logout" render={() => {
                 httpClient.logOut()
                 setTimeout(() => { this.setState({currentUser: null}) })
                 return <Redirect to="/login" />
             }} />
 
-            <Route path="/vip" render={() => {
+            {/* <Route path="/vip" render={() => {
                 return currentUser 
                 ? <h1>VIP, Welcome</h1>
                 : <Redirect to="/login" />
