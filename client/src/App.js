@@ -3,7 +3,7 @@ import {Link, Route, Switch, Redirect} from 'react-router-dom';
 import httpClient from './httpClient.js';
 import Home from './views/Home.jsx';
 import LogIn from './views/LogIn.jsx';
-import LogOut from './views/LogOut'
+import LogOut from './views/LogOut';
 import SignUp from './views/SignUp.jsx';
 import NavBar from './views/NavBar.jsx'
 
