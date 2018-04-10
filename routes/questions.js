@@ -4,14 +4,14 @@ const
 	questionsCtrl = require('../controllers/questions.js'),
 	verifyToken = require('../serverAuth.js').verifyToken
 
-questionsRouter.route('/')
+questionsRouter.route('/questions')
 	.get(questionsCtrl.index)
 	.post(questionsCtrl.create)
 
 questionsRouter.post('/authenticate', questionsCtrl.authenticate)
 
 questionsRouter.use(verifyToken)
-questionsRouter.route('/:id')
+questionsRouter.route('/questions/:id')
 	.get(questionsCtrl.show)
 	.patch(questionsCtrl.update)
 	.delete(questionsCtrl.destroy)

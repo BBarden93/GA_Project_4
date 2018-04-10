@@ -5,7 +5,8 @@ import Home from './views/Home.jsx';
 import LogIn from './views/LogIn.jsx';
 import LogOut from './views/LogOut';
 import SignUp from './views/SignUp.jsx';
-import NavBar from './views/NavBar.jsx'
+import NavBar from './views/NavBar.jsx';
+import Questions from './views/Questions.jsx'
 
 
 class App extends Component {
@@ -49,11 +50,11 @@ class App extends Component {
                 return <Redirect to="/login" />
             }} />
 
-            {/* <Route path="/vip" render={() => {
+            <Route path="/questions" render={() => {
                 return currentUser 
-                ? <h1>VIP, Welcome</h1>
+                ? <Questions />
                 : <Redirect to="/login" />
-            }} /> */}
+            }} />
 
             <Route path="/" component={Home} />
         </Switch>
