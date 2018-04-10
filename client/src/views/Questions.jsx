@@ -1,14 +1,32 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import httpClient from '../httpClient'
 
-const Questions = (props) => {
+class Questions extends React.Component {
     
-    return (
-        <div className="Questions">
-            <h1>Question</h1>
-            <h3>Answer</h3>
-        </div>
-    )
-}
+    // componentDidMount() {
+    //     httpClient.getAllMinions().then((serverResponse) => {
+    //         this.setState({
+    //             minions: serverResponse.data 
+    //         })
+    //     }) 
+    // }
 
+    render(){
+        return (
+            <div className="Questions">
+                <h1>Questions: </h1>
+                {/* {questions.map((q) => {
+                    return (
+                        <Link key={q.id} to={`/questions/${q._id}`}>
+                            <img src={} alt="related image" />
+                        </Link>
+                    )
+                })}   */}
+            </div>
+        )
+    }
+}
+                    
 
 export default Questions 

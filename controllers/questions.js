@@ -1,15 +1,15 @@
 const User = require('../models/User.js')
-const signToken = require('../serverAuth.js').signToken
+const Question = require('../models/Question.js')
 
 module.exports = {
-	// list all users
+	// list all questions
 	index: (req, res) => {
 		Question.find({}, (err, questions) => {
 			res.json(questions)
 		})
 	},
 
-	// get one user
+	// get one question
 	show: (req, res) => {
 		console.log("Current User:")
 		console.log(req.user)
@@ -18,25 +18,13 @@ module.exports = {
 		})
 	},
 
-	// create a new user
+	// create a new question 
 	create: (req, res) => {
 		Question.create(req.body, (err, question) => {
 			if(err) return res.json({success: false, code: err.code})
-			// once question is created, generate a token to "log in":
-			const token = signToken(question)
-			res.json({success: true, message: "Question created. Token attached.", token})
+			res.json({success: true, message: "Question created."})
 		})
 	},
-
-	// update an existing question
-	// update: (req, res) => {
-	// 	Question.findById(req.params.id, (err, question) => {
-	// 		Object.assign(question, req.body)
-	// 		question.save((err, updatedQuestion) => {
-	// 			res.json({success: true, message: "Question updated.", question})
-	// 		})
-	// 	})
-	// },
 
 	// delete an existing question
 	destroy: (req, res) => {

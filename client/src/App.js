@@ -7,6 +7,7 @@ import LogOut from './views/LogOut';
 import SignUp from './views/SignUp.jsx';
 import NavBar from './views/NavBar.jsx';
 import Questions from './views/Questions.jsx'
+import NewQuestion from './views/NewQuestion.jsx'
 
 
 class App extends Component {
@@ -50,11 +51,19 @@ class App extends Component {
                 return <Redirect to="/login" />
             }} />
 
+            <Route path="/questions/new" render={() => {
+                return currentUser 
+                ? <NewQuestion />
+                : <Redirect to="/login" />
+            }} />
+
             <Route path="/questions" render={() => {
                 return currentUser 
                 ? <Questions />
                 : <Redirect to="/login" />
             }} />
+
+            
 
             <Route path="/" component={Home} />
         </Switch>
