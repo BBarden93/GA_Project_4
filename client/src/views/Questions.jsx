@@ -3,14 +3,16 @@ import {Link} from 'react-router-dom'
 import httpClient from '../httpClient'
 
 class Questions extends React.Component {
-    
-    // componentDidMount() {
-    //     httpClient.getAllMinions().then((serverResponse) => {
-    //         this.setState({
-    //             minions: serverResponse.data 
-    //         })
-    //     }) 
-    // }
+    state = {
+        questions: []
+    }
+    componentDidMount() {
+        httpClient.getAllQuestions().then((serverResponse) => {
+            this.setState({
+                questions: serverResponse.data 
+            })
+        }) 
+    }
 
     render(){
         return (

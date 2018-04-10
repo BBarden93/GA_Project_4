@@ -8,6 +8,8 @@ import SignUp from './views/SignUp.jsx';
 import NavBar from './views/NavBar.jsx';
 import Questions from './views/Questions.jsx'
 import NewQuestion from './views/NewQuestion.jsx'
+import Profile from './views/Profile.jsx'
+import EditProfile from './views/EditProfile.jsx'
 
 
 class App extends Component {

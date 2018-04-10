@@ -54,5 +54,9 @@ httpClient.logOut = function() {
     return true 
 }
 
+httpClient.getAllQuestions = function(){
+    return this({method: 'get', url: '/api/questions'})
+}
+
 httpClient.defaults.headers.common.token = httpClient.getToken()
 export default httpClient

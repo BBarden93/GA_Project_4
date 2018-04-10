@@ -11,8 +11,7 @@ module.exports = {
 
 	// get one question
 	show: (req, res) => {
-		console.log("Current User:")
-		console.log(req.user)
+		console.log(req.question)
 		Question.findById(req.params.id, (err, question) => {
 			res.json(question)
 		})
