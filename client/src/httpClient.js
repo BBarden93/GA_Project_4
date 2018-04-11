@@ -58,5 +58,9 @@ httpClient.getAllQuestions = function(){
     return this({method: 'get', url: '/api/questions'})
 }
 
+httpClient.getAQuestion = function(id){
+    return this({method: 'get', url: `/api/questions/${id}`})
+}
+
 httpClient.defaults.headers.common.token = httpClient.getToken()
 export default httpClient

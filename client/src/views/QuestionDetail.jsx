@@ -1,4 +1,5 @@
 import React from 'react'
+import httpClient from '../httpClient'
 
 class QuestionDetail extends React.Component {
 
@@ -10,8 +11,12 @@ class QuestionDetail extends React.Component {
         const questionId = this.props.match.params.id
         console.log(questionId)
 
-        // httpClient.getQuestion(questionId).then(set that state here)
-        // you might need to write that method...
+        httpClient.getAQuestion(questionId).then((serverResponse) => {
+            this.setState({
+                question: serverResponse.data
+            })
+        })
+       
     }
 
     render() {
@@ -20,8 +25,8 @@ class QuestionDetail extends React.Component {
         if(!question) return <h1>Loading...</h1>
         return (
             <div className="QuestionDetail">
-                {/* <h1>{question}}</h1>
-                <ul> 
+                <h1>{question.question}</h1>
+                {/* <ul> 
                 {questions.map((q) => {
                     return (
                         <p>{}</p>
