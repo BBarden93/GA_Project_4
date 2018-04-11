@@ -65,6 +65,12 @@ class App extends Component {
                 : <Redirect to="/login" />
             }} />
 
+             {/* <Route path="//questions/:id" render={() => {
+                return currentUser
+                ? <DeleteProfile currentUser={currentUser} />
+                : <Redirect to="/login" />
+            }} /> */}
+
             <Route path="/questions/new" render={() => {
                 return currentUser 
                 ? <NewQuestion />

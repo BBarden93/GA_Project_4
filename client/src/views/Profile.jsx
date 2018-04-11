@@ -1,5 +1,4 @@
 import React from 'react'
-import httpClient from "../httpClient";
 import { Link } from 'react-router-dom'
 
 class Profile extends React.Component {

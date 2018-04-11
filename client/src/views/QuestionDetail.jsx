@@ -7,6 +7,12 @@ class QuestionDetail extends React.Component {
         question: null
     }
 
+    handleDeleteClick() {
+        httpClient.deleteAQuestion(this.props.match.params.id).then((serverResponse) => {
+            this.props.history.push('/questions')
+        })
+    }
+
     componentDidMount() {
         const questionId = this.props.match.params.id
         console.log(questionId)
@@ -16,7 +22,6 @@ class QuestionDetail extends React.Component {
                 question: serverResponse.data
             })
         })
-       
     }
 
     render() {
@@ -24,15 +29,18 @@ class QuestionDetail extends React.Component {
         console.log(question)
         if(!question) return <h1>Loading...</h1>
         return (
-            <div className="QuestionDetail">
+            <div className="QuestionDetail" style={{textAlign: 'center'}}>
                 <h1>{question.question}</h1>
-                {/* <ul> 
-                {questions.map((q) => {
+                <button type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</button>
+                <ul> 
+                {question.answers.map((q) => {
                     return (
-                        <p>{}</p>
+                        <div className="answer-list">
+                            <p>{q.answers.answers}</p>
+                        </div>
                     )
                 })}  
-                    </ul> */}
+                    </ul>
             </div>
         )
     }

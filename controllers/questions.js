@@ -27,10 +27,21 @@ module.exports = {
 		})
 	},
 
+	// update an existing question
+	update: (req, res) => {
+		Question.findById(req.params.id, (err, user) => {
+			Object.assign(question, req.body)
+			question.save((err, answer) => {
+				const token = signToken(answer)
+				res.json({success: true, message: "User updated.", answer, token})
+			})
+		})
+	},
+
 	// delete an existing question
 	destroy: (req, res) => {
-		Question.findByIdAndRemove(req.params.id, (err, question) => {
-			res.json({success: true, message: "Question deleted.", question})
+		Question.findByIdAndRemove(req.params.id, (err, thatQuestion) => {
+			res.json({success: true, message: "Question deleted.", thatQuestion})
 		})
 	},
 

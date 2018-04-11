@@ -4,7 +4,7 @@ import httpClient from '../httpClient'
 // sign up form behaves almost identically to log in form. We could create a flexible Form component to use for both actions, but for now we'll separate the two:
 class NewQuestion extends React.Component {
 	state = {
-		fields: { question: '', name: ''}
+		fields: { question: ''}
 	}
 
 	onInputChange(evt) {
@@ -18,17 +18,17 @@ class NewQuestion extends React.Component {
 
 	onFormSubmit(evt) {
 		evt.preventDefault()
-		httpClient.signUp(this.state.fields).then(user => {
-			this.setState({ fields: { question: '', name: ''} })
+		httpClient.newQuestion(this.state.fields).then(user => {
+			this.setState({ fields: { question: ''} })
 			if(user) {
-				// this.props.onSignUpSuccess(user)
+				// this.props.onnewQuestionSuccess(user)
 				this.props.history.push('/')
 			}
 		})
 	}
 	
 	render() {
-		const { question, name } = this.state.fields
+		const {question} = this.state.fields
 		return (
 			<div className='NewQuestion'>
 				<div className='row'>
@@ -36,7 +36,6 @@ class NewQuestion extends React.Component {
 						<h1>Ask a Question</h1>
 						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 							<input type="text" placeholder="Question" name="question" value={question} />
-                            <input type="text" placeholder="Name" name="name" value={name} />
 							<button>Submit Question</button>
 						</form>
 					</div>

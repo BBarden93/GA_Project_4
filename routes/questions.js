@@ -13,7 +13,7 @@ questionsRouter.post('/authenticate', questionsCtrl.authenticate)
 questionsRouter.use(verifyToken)
 questionsRouter.route('/:id')
 	.get(questionsCtrl.show)
-	// .patch(questionsCtrl.update)
-	// .delete(questionsCtrl.destroy)
+	// .patch(usersCtrl.update)
+	.delete(questionsCtrl.destroy)
 
 module.exports = questionsRouter
