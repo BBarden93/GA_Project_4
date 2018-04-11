@@ -1,5 +1,7 @@
-const User = require('../models/User.js')
-const Question = require('../models/Question.js')
+const 
+	User = require('../models/User.js'),
+	Question = require('../models/Question.js'),
+	signToken = require('../serverAuth.js').signToken
 
 module.exports = {
 	// list all questions

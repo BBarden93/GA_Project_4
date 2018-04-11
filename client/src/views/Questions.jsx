@@ -8,6 +8,7 @@ class Questions extends React.Component {
     }
     componentDidMount() {
         httpClient.getAllQuestions().then((serverResponse) => {
+            console.log(serverResponse)
             this.setState({
                 questions: serverResponse.data 
             })
@@ -15,16 +16,18 @@ class Questions extends React.Component {
     }
 
     render(){
+        const {questions} = this.state 
         return (
             <div className="Questions">
                 <h1>Questions: </h1>
-                {/* {questions.map((q) => {
+                <Link to="/questions/new">Ask a Question</Link>
+                <ul> 
+                {questions.map((q) => {
                     return (
-                        <Link key={q.id} to={`/questions/${q._id}`}>
-                            <img src={} alt="related image" />
-                        </Link>
+                        <Link key={q._id} to={`/questions/${q._id}`}>{q.question}</Link>
                     )
-                })}   */}
+                })}  
+                    </ul>
             </div>
         )
     }

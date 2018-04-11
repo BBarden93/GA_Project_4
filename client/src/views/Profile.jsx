@@ -1,9 +1,14 @@
+import React from 'react'
 import httpClient from "../httpClient";
+import { Link } from 'react-router-dom'
 
 class Profile extends React.Component {
     render (){
         return (
-            <h1>Profile</h1>
+            <div className="editProfile">
+                <h1>Profile</h1>
+                <Link to="/editprofile">Edit Profile</Link>
+            </div>
         )
     }
 }

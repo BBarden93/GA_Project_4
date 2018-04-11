@@ -1,5 +1,6 @@
-const User = require('../models/User.js')
-const signToken = require('../serverAuth.js').signToken
+const 
+	User = require('../models/User.js'),
+	signToken = require('../serverAuth.js').signToken
 
 module.exports = {
 	// list all users
@@ -33,7 +34,8 @@ module.exports = {
 		User.findById(req.params.id, (err, user) => {
 			Object.assign(user, req.body)
 			user.save((err, updatedUser) => {
-				res.json({success: true, message: "User updated.", user})
+				const token = signToken(updatedUser)
+				res.json({success: true, message: "User updated.", user, token})
 			})
 		})
 	},
