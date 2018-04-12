@@ -6,7 +6,7 @@ const
 
 questionsRouter.route('/')
 	.get(questionsCtrl.index)
-	.post(questionsCtrl.create)
+	.post(verifyToken, questionsCtrl.create)
 
 questionsRouter.post('/authenticate', questionsCtrl.authenticate)
 
@@ -15,5 +15,8 @@ questionsRouter.route('/:id')
 	.get(questionsCtrl.show)
 	// .patch(usersCtrl.update)
 	.delete(questionsCtrl.destroy)
+
+questionsRouter.route('/:id/answers')
+	.post(questionsCtrl.addAnswer)
 
 module.exports = questionsRouter

@@ -80,5 +80,9 @@ httpClient.deleteAQuestion = function(id){
     return this({method: 'delete', url: `/api/questions/${id}`})
 }
 
+httpClient.addAnswer = function(questionId, fields) {
+    return this({ method: 'post', url: `/api/questions/${questionId}/answers`, data: fields })
+}
+
 httpClient.defaults.headers.common.token = httpClient.getToken()
 export default httpClient

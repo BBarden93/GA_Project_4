@@ -6,7 +6,10 @@ const
 module.exports = {
 	// list all questions
 	index: (req, res) => {
-		Question.find({}, (err, questions) => {
+		Question.find({})
+		.select('-answers')
+		.populate('user')
+		.exec((err, questions) => {
 			res.json(questions)
 		})
 	},
@@ -14,14 +17,17 @@ module.exports = {
 	// get one question
 	show: (req, res) => {
 		console.log(req.question)
-		Question.findById(req.params.id, (err, question) => {
+		Question.findById(req.params.id)
+		.populate('user')
+		.populate('answers.user')
+		.exec((err, question) => {
 			res.json(question)
 		})
 	},
 
 	// create a new question 
 	create: (req, res) => {
-		Question.create(req.body, (err, question) => {
+		Question.create({ ...req.body, user: req.user }, (err, question) => {
 			if(err) return res.json({success: false, code: err.code})
 			res.json({success: true, message: "Question created."})
 		})
@@ -58,5 +64,13 @@ module.exports = {
 			const token = signToken(user)
 			res.json({success: true, message: "Token attached.", token})
 		})
+	},
+	addAnswer: (req, res) => {
+		Question.findById(req.params.id).populate('answers.user').exec((err, question) => {
+			question.answers.push({ ...req.body, user: req.user })
+			question.save((err, answeredQuestion) => {
+				res.json({ success: true, message: "Question answered", question: answeredQuestion})
+			})
+		})		
 	}
 }
