@@ -58,6 +58,7 @@ class QuestionDetail extends React.Component {
                             return (
                                 <div key={a._id} className="answer-list">
                                     <p>{a.body} - {a.user.name}</p>
+                                    {/* <button type="button" onClick={this.handleAnswerDeleteClick.bind(this)}>Delete Answer</button> */}
                                 </div>
                             )
                         })
