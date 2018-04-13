@@ -71,9 +71,9 @@ class App extends Component {
                 : <Redirect to="/login" />
             }} /> */}
 
-            <Route path="/questions/new" render={() => {
+            <Route path="/questions/new" render={(routeProps) => {
                 return currentUser 
-                ? <NewQuestion />
+                ? <NewQuestion {...routeProps} />
                 : <Redirect to="/login" />
             }} />
 

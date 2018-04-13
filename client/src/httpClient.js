@@ -64,16 +64,6 @@ httpClient.getAQuestion = function(id){
 
 httpClient.newQuestion = function(questionInput) {
     return this({method: 'post', url: '/api/questions', data: questionInput})
-    .then((serverResponse) => {
-        console.log(serverResponse.data)
-        const {token} = serverResponse.data 
-        if(token) {
-            this.defaults.headers.common.token =this.setToken(token)
-            return jwtDecode(token)
-        } else {
-            return false 
-        }
-    })
 }
 
 httpClient.deleteAQuestion = function(id){

@@ -27,9 +27,13 @@ module.exports = {
 
 	// create a new question 
 	create: (req, res) => {
+		console.log("REQUEST BODY:")
+		console.log(req.body)
+		// console.log(req.user)
 		Question.create({ ...req.body, user: req.user }, (err, question) => {
 			if(err) return res.json({success: false, code: err.code})
-			res.json({success: true, message: "Question created."})
+			res.json({success: true, message: "Question created.", question})
+			console.log(question)
 		})
 	},
 
@@ -65,8 +69,13 @@ module.exports = {
 			res.json({success: true, message: "Token attached.", token})
 		})
 	},
+
+	// Add an answer to a question
 	addAnswer: (req, res) => {
-		Question.findById(req.params.id).populate('answers.user').exec((err, question) => {
+		console.log(req.body)
+		Question.findById(req.params.id)
+			.populate('answers.user')
+			.exec((err, question) => {
 			question.answers.push({ ...req.body, user: req.user })
 			question.save((err, answeredQuestion) => {
 				res.json({ success: true, message: "Question answered", question: answeredQuestion})

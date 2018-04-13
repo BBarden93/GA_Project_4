@@ -8,7 +8,8 @@ const
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/the-inquiry',
 	PORT = process.env.PORT || 3001,
 	usersRoutes = require('./routes/users.js'),
-	questionsRoutes = require('./routes/questions.js')
+	questionsRoutes = require('./routes/questions.js'),
+	Question = require('./models/Question.js')
 
 
 mongoose.connect(MONGODB_URI, (err) => {
@@ -25,6 +26,15 @@ app.get('/api', (req, res) => {
 
 app.use('/api/users', usersRoutes)
 app.use('/api/questions', questionsRoutes)
+
+app.delete('/api/answers/:id', (req, res) => {
+	Question.findOne({ 'answers._id': req.params.id }, (err, question) => {
+		question.answers.id(req.params.id).remove()
+		question.save((err, updatedQuestion) => {
+			res.json({ success: true, message: "question deleted.", question: updatedQuestion })
+		})
+	})
+})
 
 app.use('*', (req, res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
