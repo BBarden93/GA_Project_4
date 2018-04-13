@@ -54,6 +54,10 @@ httpClient.logOut = function() {
     return true 
 }
 
+httpClient.deleteUser = function(userId) {
+    return this({method: 'delete', url: `api/users/${userId}`})
+}
+
 httpClient.getAllQuestions = function(){
     return this({method: 'get', url: '/api/questions'})
 }
@@ -72,6 +76,10 @@ httpClient.deleteAQuestion = function(id){
 
 httpClient.addAnswer = function(questionId, fields) {
     return this({ method: 'post', url: `/api/questions/${questionId}/answers`, data: fields })
+}
+
+httpClient.deleteAnswer = function(answerId) {
+    return this({ method: 'delete', url: `/api/answers/${answerId}`})
 }
 
 httpClient.defaults.headers.common.token = httpClient.getToken()

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import { Container } from 'reactstrap'
 import httpClient from './httpClient.js';
 import Home from './views/Home.jsx';
 import LogIn from './views/LogIn.jsx';
-// import LogOut from './views/LogOut.jsx';
 import SignUp from './views/SignUp.jsx';
 import NavBar from './views/NavBar.jsx';
 import Questions from './views/Questions.jsx';
 import NewQuestion from './views/NewQuestion.jsx';
 import Profile from './views/Profile.jsx';
 import EditProfile from './views/EditProfile.jsx';
-import QuestionDetail from './views/QuestionDetail'
+import QuestionDetail from './views/QuestionDetail';
+import './App.css'
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
     
     return (
 
-      <div className="App">
+      <Container className="App">
 
           {currentUser 
             ? (
@@ -35,8 +36,9 @@ class App extends Component {
             )
             : null
           }
-
-          <NavBar currentUser={currentUser} />
+          <div className='NavBar'>
+            <NavBar currentUser={currentUser} />
+          </div>
 
         <Switch>
             <Route path="/login" render={(routeProps) => {
@@ -65,12 +67,6 @@ class App extends Component {
                 : <Redirect to="/login" />
             }} />
 
-             {/* <Route path="//questions/:id" render={() => {
-                return currentUser
-                ? <DeleteProfile currentUser={currentUser} />
-                : <Redirect to="/login" />
-            }} /> */}
-
             <Route path="/questions/new" render={(routeProps) => {
                 return currentUser 
                 ? <NewQuestion {...routeProps} />
@@ -83,17 +79,16 @@ class App extends Component {
                 : <Redirect to="/login" />
             }} />
 
-            <Route path="/questions" render={() => {
+            <Route path="/questions" render={(routeProps) => {
                 return currentUser 
-                ? <Questions />
+                ? <Questions {...routeProps}/>
                 : <Redirect to="/login" />
             }} />
 
-            
-
             <Route path="/" component={Home} />
+
         </Switch>
-      </div>
+      </Container>
     );
   }
 }

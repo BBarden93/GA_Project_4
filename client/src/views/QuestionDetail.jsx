@@ -4,7 +4,8 @@ import httpClient from '../httpClient'
 class QuestionDetail extends React.Component {
 
     state = {
-        question: null
+        question: '',
+        currentUser: httpClient.getCurrentUser() 
     }
 
     handleAddAnswer(evt){
@@ -25,9 +26,18 @@ class QuestionDetail extends React.Component {
         })
     }
 
+    handleAnswerDeleteClick(answerId) {
+        httpClient.deleteAnswer(answerId).then((serverResponse) => {
+            console.log(serverResponse.data)
+            this.setState({
+                question: serverResponse.data.question
+            })
+        })
+    }
+
     componentDidMount() {
         const questionId = this.props.match.params.id
-        console.log(questionId)
+        // console.log(questionId)
 
         httpClient.getAQuestion(questionId).then((serverResponse) => {
             this.setState({
@@ -37,14 +47,18 @@ class QuestionDetail extends React.Component {
     }
 
     render() {
-        const { question } = this.state
-        console.log(question)
+        const {question, currentUser} = this.state
+        console.log(question.user)
+        
         if(!question) return <h1>Loading...</h1>
         return (
             <div className="QuestionDetail" style={{textAlign: 'center'}}>
                 <h1>{question.body}</h1>
+                
+                    {currentUser._id === question.user._id?
+                        <button type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</button>
+                    :<h3>Asked by: {question.user.name}</h3>}
                 <h2>{question.answers.length} answers</h2>
-                <button type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</button>
                 
                 <form onSubmit={this.handleAddAnswer.bind(this)}>
                     <input ref="body" type="text" placeholder="Your answer..." />
@@ -57,8 +71,13 @@ class QuestionDetail extends React.Component {
                         question.answers.map((a) => {
                             return (
                                 <div key={a._id} className="answer-list">
-                                    <p>{a.body} - {a.user.name}</p>
-                                    {/* <button type="button" onClick={this.handleAnswerDeleteClick.bind(this)}>Delete Answer</button> */}
+                                    <p>
+                                        {a.body} - {a.user.name}
+                                        {currentUser._id === a.user._id
+                                            ? <button type="button" onClick={this.handleAnswerDeleteClick.bind(this, a._id)}>Delete Answer</button>
+                                            : null
+                                        }
+                                    </p>
                                 </div>
                             )
                         })

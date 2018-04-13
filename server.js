@@ -11,7 +11,6 @@ const
 	questionsRoutes = require('./routes/questions.js'),
 	Question = require('./models/Question.js')
 
-
 mongoose.connect(MONGODB_URI, (err) => {
 	console.log(err || `Connected to MongoDB.`)
 })
@@ -28,10 +27,12 @@ app.use('/api/users', usersRoutes)
 app.use('/api/questions', questionsRoutes)
 
 app.delete('/api/answers/:id', (req, res) => {
-	Question.findOne({ 'answers._id': req.params.id }, (err, question) => {
+	Question.findOne({ 'answers._id': req.params.id })
+	.populate('answers.user')
+	.exec((err, question) => {
 		question.answers.id(req.params.id).remove()
 		question.save((err, updatedQuestion) => {
-			res.json({ success: true, message: "question deleted.", question: updatedQuestion })
+			res.json({ success: true, message: "answer deleted.", question: updatedQuestion })
 		})
 	})
 })
