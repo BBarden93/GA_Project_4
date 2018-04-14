@@ -29,13 +29,15 @@ class App extends Component {
     return (
 
       <Container className="App">
-
+        {/* <div className="current-user">
           {currentUser 
             ? (
               <div>{currentUser.name}</div>
             )
             : null
           }
+        </div> */}
+
           <div className='NavBar'>
             <NavBar currentUser={currentUser} />
           </div>

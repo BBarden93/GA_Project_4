@@ -1,21 +1,36 @@
 .App {
   text-align: center;
   margin: 0 auto;
+ 
   /* display: flex; */
 }
 .NavBar {
-  text-align: left;
   list-style: none;
+  text-align: right;
 }
-/* img {
-  height: 100%;
-  max-width: 600px;
-  align-items: stretch;
-  float: right;
- 
-} */
+a {
+  color:rgb(134, 149, 174);
+}
+img {
+  width: 100%;
+  max-height: 50%;
+
+  /* margin-top: 80px; */
+}
 .HomeInfo {
-  float: left;
+  margin-top: 80px;
+  margin-bottom: 0px ;
+  font-family: 'lobster';
+  color: rgb(89, 79, 68);
 }
+.editProfile {
+  font-family: 'Damion';
+}
+#root {
+  background-color: rgb(213, 207, 207);
+  height: 800px;
+}
+
+
 
 

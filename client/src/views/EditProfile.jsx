@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from "../httpClient";
+import {Form} from 'reactstrap'
 
 class EditProfile extends React.Component {
     

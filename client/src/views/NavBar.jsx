@@ -5,7 +5,6 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 const NavBar = (props) => {
 	const { currentUser } = props
 	return (
-		<div className='NavBar'>
 			<Nav>
 				<NavItem><NavLink tag={RouterNavLink} to="/">Home</NavLink></NavItem>
 				{currentUser && <NavItem><NavLink tag={RouterNavLink} to="/profile">My Profile</NavLink></NavItem>}
@@ -14,7 +13,6 @@ const NavBar = (props) => {
 				{!currentUser && <NavItem><NavLink tag={RouterNavLink} to="/login">Log In</NavLink></NavItem>}
 				{!currentUser && <NavItem><NavLink tag={RouterNavLink} to="/signup">Sign Up</NavLink></NavItem>}
 			</Nav>
-		</div>
 	)
 }
 
