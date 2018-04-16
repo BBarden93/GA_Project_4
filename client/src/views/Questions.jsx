@@ -19,14 +19,14 @@ class Questions extends React.Component {
         const {questions} = this.state 
         console.log(questions)
         return (
-            <div className="Questions" style={{textAlign: 'center'}}>
+            <div className="Questions" >
                 <h1>Questions: </h1>
-                <Link to="/questions/new">Ask a Question</Link>
+                <Link className="askQ" to="/questions/new">Ask a Question</Link>
                 <ul> 
                 {questions.map((q) => {
                     return (
                         <div key={q._id}  className="questionLink">
-                            <Link to={`/questions/${q._id}`}>{q.body} - {q.user.name}</Link><br />
+                            <Link  className="qLink"to={`/questions/${q._id}`}>{q.body} - {q.user.name}</Link><br />
                         </div>
                     )
                 })}  

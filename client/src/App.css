@@ -30,6 +30,21 @@ img {
   background-color: rgb(213, 207, 207);
   height: 800px;
 }
+.qLink {
+  color: rgb(89, 79, 68);
+}
+h1 {
+  color: rgb(89, 79, 68);
+  font-family: 'Damion';
+}
+
+.askQ {
+  color: rgb(89, 79, 68);
+}
+.Questions {
+  text-align: center;
+}
+
 
 
 
