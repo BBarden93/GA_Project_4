@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import {Button} from 'reactstrap'
 
 class QuestionDetail extends React.Component {
 
@@ -58,11 +59,11 @@ class QuestionDetail extends React.Component {
                     {currentUser._id === question.user._id?
                         <button type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</button>
                     :<h3>Asked by: {question.user.name}</h3>}
-                <h2>{question.answers.length} answers</h2>
+                <h3>{question.answers.length} answers</h3>
                 
                 <form onSubmit={this.handleAddAnswer.bind(this)}>
                     <input ref="body" type="text" placeholder="Your answer..." />
-                    <button>Add an Answer</button>
+                    <Button color="secondary" size="sm">Add an Answer</Button>
                 </form>
                 
                 <ul> 
@@ -72,9 +73,9 @@ class QuestionDetail extends React.Component {
                             return (
                                 <div key={a._id} className="answer-list">
                                     <p>
-                                        {a.body} - {a.user.name}
+                                        {a.body} - {a.user.name} <br /> 
                                         {currentUser._id === a.user._id
-                                            ? <button type="button" onClick={this.handleAnswerDeleteClick.bind(this, a._id)}>Delete Answer</button>
+                                            ? <Button color="secondary" size="sm" type="button" onClick={this.handleAnswerDeleteClick.bind(this, a._id)}>Delete Answer</Button>
                                             : null
                                         }
                                     </p>

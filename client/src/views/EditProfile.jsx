@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from "../httpClient";
-import {Form} from 'reactstrap'
+import {Form, Button} from 'reactstrap'
 
 class EditProfile extends React.Component {
     
@@ -47,7 +47,7 @@ class EditProfile extends React.Component {
 							<input type="text" placeholder="Name" name="name" value={name} />
 							<input type="text" placeholder="Email" name="email" value={email} />
 							<input type="password" placeholder="Password" name="password" value={password} />
-							<button>Update Profile</button>
+							<Button color="secondary" size="sm">Update Profile</Button>
 						</form>
 						{/* <Form inline>
 							<FormGroup>

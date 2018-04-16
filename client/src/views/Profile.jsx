@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import httpClient from '../httpClient.js';
+import {Button} from 'reactstrap';
 
 class Profile extends React.Component {
     state = {
@@ -10,6 +11,7 @@ class Profile extends React.Component {
         const userId = this.state.currentUser._id
         httpClient.deleteUser(userId).then((serverResponse) => {
             console.log(serverResponse)
+            // httpClient.logOut()
             // this.props.history.push('/questions')
         })
     }
@@ -20,8 +22,8 @@ class Profile extends React.Component {
             <div className="editProfile">
                 <h2>{currentUser.name}</h2>
                 <h4>{currentUser.email}</h4>
-                <Link to="/editprofile">Edit Profile</Link>
-                <button onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</button> 
+                <Link className="link" to="/editprofile">Edit Profile</Link><br />
+                <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
             </div>
         )
     }
