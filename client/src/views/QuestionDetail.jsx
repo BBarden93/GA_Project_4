@@ -57,7 +57,7 @@ class QuestionDetail extends React.Component {
                 <h1>{question.body}</h1>
                 
                     {currentUser._id === question.user._id?
-                        <button type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</button>
+                        <Button color="secondary" size="sm" type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</Button>
                     :<h3>Asked by: {question.user.name}</h3>}
                 <h3>{question.answers.length} answers</h3>
                 
@@ -84,7 +84,7 @@ class QuestionDetail extends React.Component {
                         })
                     )
                     : (
-                        <h2>No answers yet. Be a first responder.</h2>
+                        <h3>No answers yet. Be a first responder.</h3>
                     )
                 }  
                     </ul>
