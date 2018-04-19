@@ -30,7 +30,7 @@ img {
   background-color: rgb(213, 207, 207);
   height: 800px;
 }
-.link, h2, h3, p {
+.link, h2, h3, h4, p {
   color: rgb(89, 79, 68);
 }
 h1 {
@@ -42,6 +42,10 @@ h1 {
 }
 .editProfile {
   color: rgb(89, 79, 68);
+}
+header {
+  padding: 40px;
+  background-color: rgba(89, 79, 68, 0.5);
 }
 
 

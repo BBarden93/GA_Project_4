@@ -1,6 +1,6 @@
-import React from 'react'
-import httpClient from '../httpClient'
-import {Button} from 'reactstrap'
+import React from 'react';
+import httpClient from '../httpClient';
+import {Button} from 'reactstrap';
 
 class QuestionDetail extends React.Component {
 
@@ -54,11 +54,14 @@ class QuestionDetail extends React.Component {
         if(!question) return <h1>Loading...</h1>
         return (
             <div className="QuestionDetail" style={{textAlign: 'center'}}>
-                <h1>{question.body}</h1>
+                <header>
+                    <h1>{question.body}</h1>
+                    <h4>Asked by: {question.user.name}</h4>
+                </header>
                 
                     {currentUser._id === question.user._id?
                         <Button color="secondary" size="sm" type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</Button>
-                    :<h3>Asked by: {question.user.name}</h3>}
+                    :null}
                 <h3>{question.answers.length} answers</h3>
                 
                 <form onSubmit={this.handleAddAnswer.bind(this)}>

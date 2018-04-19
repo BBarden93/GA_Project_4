@@ -3,7 +3,7 @@
 #Project 4: Full Stack App Using React Framework
 ### Mermaid Moto Forum: A motorcycle maintenance and repair platform.
 
-Check out the app here: ![](https://warm-wave-23133.herokuapp.com/questions/5ad4cced682f100014855e61)
+Check out the app here: [link] (https://warm-wave-23133.herokuapp.com/questions/5ad4cced682f100014855e61)
 
 ### Technologies: 
 - HTML
@@ -22,7 +22,7 @@ The user is a female motorcyclist looking to work on and increase their knowledg
 For this project I chose to make a question and answer forum for female motorcycle enthusiasts. I started out with a User model. Then I created the Questions model which contained an answers schema as well. 
 
 ### Wireframes: 
-![] (https://i.imgur.com/YilVBHm.png)
+![](https://i.imgur.com/YilVBHm.png)
 ![] (https://i.imgur.com/GEYaU73.png)
 ![] (https://i.imgur.com/nMt706x.png)
 ![] (https://i.imgur.com/SIZ4qB8.png)
