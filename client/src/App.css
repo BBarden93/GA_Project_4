@@ -46,6 +46,10 @@ h1 {
 header {
   padding: 40px;
   background-color: rgba(89, 79, 68, 0.5);
+  width: 100%;
+}
+.answers-list {
+  float: left; 
 }
 
 

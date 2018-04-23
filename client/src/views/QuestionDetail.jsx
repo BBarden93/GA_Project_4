@@ -62,14 +62,14 @@ class QuestionDetail extends React.Component {
                     {currentUser._id === question.user._id?
                         <Button color="secondary" size="sm" type="button" onClick={this.handleDeleteClick.bind(this)}>Delete Question</Button>
                     :null}
-                <h3>{question.answers.length} answers</h3>
+                <h4>{question.answers.length} answers</h4>
                 
                 <form onSubmit={this.handleAddAnswer.bind(this)}>
                     <input ref="body" type="text" placeholder="Your answer..." />
                     <Button color="secondary" size="sm">Add an Answer</Button>
                 </form>
                 
-                <ul> 
+                <ul className="answers-list"> 
                 {question.answers.length
                     ? (
                         question.answers.map((a) => {
