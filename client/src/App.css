@@ -50,6 +50,7 @@ header {
 }
 .answers-list {
   float: left; 
+  padding: 40px;
 }
 
 

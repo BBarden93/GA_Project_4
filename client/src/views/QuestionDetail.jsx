@@ -1,6 +1,6 @@
 import React from 'react';
 import httpClient from '../httpClient';
-import {Button} from 'reactstrap';
+import {Button, Form} from 'reactstrap';
 
 class QuestionDetail extends React.Component {
 
@@ -64,10 +64,10 @@ class QuestionDetail extends React.Component {
                     :null}
                 <h4>{question.answers.length} answers</h4>
                 
-                <form onSubmit={this.handleAddAnswer.bind(this)}>
+                <Form onSubmit={this.handleAddAnswer.bind(this)}>
                     <input ref="body" type="text" placeholder="Your answer..." />
                     <Button color="secondary" size="sm">Add an Answer</Button>
-                </form>
+                </Form>
                 
                 <ul className="answers-list"> 
                 {question.answers.length
@@ -87,7 +87,7 @@ class QuestionDetail extends React.Component {
                         })
                     )
                     : (
-                        <h3>No answers yet. Be a first responder.</h3>
+                        <h4>No answers yet. Be a first responder.</h4>
                     )
                 }  
                     </ul>

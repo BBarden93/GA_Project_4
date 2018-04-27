@@ -43,12 +43,12 @@ class EditProfile extends React.Component {
                 <div className='row'>
 					<div className='column column-33 column-offset-33'>
 						<h1>Edit Profile</h1>
-						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+						<Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 							<input type="text" placeholder="Name" name="name" value={name} />
 							<input type="text" placeholder="Email" name="email" value={email} />
 							<input type="password" placeholder="Password" name="password" value={password} />
 							<Button color="secondary" size="sm">Update Profile</Button>
-						</form>
+						</Form>
 						{/* <Form inline>
 							<FormGroup>
 							<Label for="exampleEmail" hidden>Email</Label>
