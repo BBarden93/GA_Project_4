@@ -56,7 +56,7 @@ class QuestionDetail extends React.Component {
             <div className="QuestionDetail" style={{textAlign: 'center'}}>
                 <header>
                     <h1>{question.body}</h1>
-                    <h6>Asked by: {question.user.name}</h6>
+                    <h6 className="askedBy">Asked by: {question.user.name}</h6>
                 </header>
                 
                     {currentUser._id === question.user._id?

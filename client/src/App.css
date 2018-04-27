@@ -44,13 +44,17 @@ h1 {
   color: rgb(89, 79, 68);
 }
 header {
-  padding: 40px;
+  padding: 20px;
   background-color: rgba(89, 79, 68, 0.5);
-  width: 100%;
+  margin-left: -33.33%;
+  margin-right: -33.33%;
 }
 .answers-list {
   float: left; 
   padding: 40px;
+}
+.askedBy {
+  padding:8px ;
 }
 
 
