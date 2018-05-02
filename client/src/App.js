@@ -11,6 +11,7 @@ import NewQuestion from './views/NewQuestion.jsx';
 import Profile from './views/Profile.jsx';
 import EditProfile from './views/EditProfile.jsx';
 import QuestionDetail from './views/QuestionDetail';
+// import Modal from './Components/Modal/Modal.js';
 import './App.css'
 
 class App extends Component {
