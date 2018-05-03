@@ -22,7 +22,7 @@ class Profile extends React.Component {
             <div className="editProfile">
                 <h2>{currentUser.name}</h2>
                 <h4>{currentUser.email}</h4>
-                <Link className="link" to="/editprofile">Edit Profile</Link><br />
+                <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
                 <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
             </div>
         )

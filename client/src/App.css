@@ -43,6 +43,12 @@ h1 {
 .editProfile {
   color: rgb(89, 79, 68);
 }
+.editProfile h2 {
+  padding: 30px;
+}
+.editProfile h4 {
+  padding: 20px;
+}
 header {
   padding: 20px;
   background-color: rgba(89, 79, 68, 0.5);
