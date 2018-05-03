@@ -23,9 +23,6 @@ img {
   font-family: 'lobster';
   color: rgb(89, 79, 68);
 }
-.editProfile {
-  font-family: 'Damion';
-}
 #root {
   background-color: rgb(213, 207, 207);
   height: 800px;
@@ -41,6 +38,7 @@ h1 {
   text-align: center;
 }
 .editProfile {
+  font-family: 'Damion';
   color: rgb(89, 79, 68);
 }
 .editProfile h2 {
@@ -48,6 +46,10 @@ h1 {
 }
 .editProfile h4 {
   padding: 20px;
+}
+.editProfile Button {
+  color: rgb(213, 207, 207) ;
+  margin: 10px;
 }
 header {
   padding: 20px;
