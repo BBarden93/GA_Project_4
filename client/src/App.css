@@ -37,8 +37,8 @@ h1 {
 .Questions {
   text-align: center;
 }
-.Questions link {
-  padding: 5px;
+.link {
+  padding: 7px;
 }
 .Questions ul {
   padding: 20px;
