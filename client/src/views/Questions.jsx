@@ -21,7 +21,7 @@ class Questions extends React.Component {
         return (
             <div className="Questions" >
                 <h1>Questions: </h1>
-                <Link className="link" to="/questions/new">Ask a Question</Link>
+                <Link className="askLink" to="/questions/new">Ask a Question</Link>
                 <ul> 
                 {questions.map((q) => {
                     return (

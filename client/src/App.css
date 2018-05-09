@@ -37,6 +37,15 @@ h1 {
 .Questions {
   text-align: center;
 }
+.Questions link {
+  padding: 5px;
+}
+.Questions ul {
+  padding: 20px;
+}
+.Questions a {
+  color: rgb(89, 79, 68);
+}
 .editProfile {
   font-family: 'Damion';
   color: rgb(89, 79, 68);
