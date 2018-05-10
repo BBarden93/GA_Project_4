@@ -20,21 +20,22 @@ class Questions extends React.Component {
         console.log(questions)
         return (
             <div className="Questions" >
-                <h1>Questions: </h1>
-                <Link className="askLink" to="/questions/new">Ask a Question</Link>
+                <header>
+                    <h1>Questions: </h1>
+                    <Link className="askLink" to="/questions/new">Ask a Question</Link>
+                </header>
                 <ul> 
-                {questions.map((q) => {
-                    return (
-                        <div key={q._id}  >
-                            <Link className="link"to={`/questions/${q._id}`}> {q.body} </Link><br />
-                        </div>
-                    )
-                })}  
-                    </ul>
+                    {questions.map((q) => {
+                        return (
+                            <div key={q._id}  >
+                                <Link className="link"to={`/questions/${q._id}`}> {q.body} </Link><br />
+                            </div>
+                        )
+                    })}  
+                </ul>
             </div>
         )
     }
 }
                     
-
 export default Questions 
