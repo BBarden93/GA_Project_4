@@ -71,6 +71,9 @@ header {
 .askedBy {
   padding:8px ;
 }
+.profileBtns {
+  float: center;
+}
 
 
 

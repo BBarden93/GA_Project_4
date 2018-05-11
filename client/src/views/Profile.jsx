@@ -5,7 +5,8 @@ import {Button} from 'reactstrap';
 
 class Profile extends React.Component {
     state = {
-        currentUser: httpClient.getCurrentUser() 
+        currentUser: httpClient.getCurrentUser(), 
+        questions: []
     }
     handleDeleteUserClick() {
         const userId = this.state.currentUser._id
@@ -18,14 +19,20 @@ class Profile extends React.Component {
     render (){
         const {currentUser} = this.state 
         console.log(currentUser)
+        console.log(this.state.questions)
         return (
             <div className="editProfile">
                 <header>
                     <h2>{currentUser.name}</h2>
                     <h4>{currentUser.email}</h4>
                 </header>
-                <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
-                <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
+                {/* <ul>
+                    <li>questions asked by user</li>
+                </ul> */}
+                <div className= "profileBtns">
+                    <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
+                    <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
+                </div>
             </div>
         )
     }
