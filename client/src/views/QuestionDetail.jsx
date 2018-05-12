@@ -90,7 +90,7 @@ class QuestionDetail extends React.Component {
                         <h4>No answers yet. Be a first responder.</h4>
                     )
                 }  
-                    </ul>
+                </ul>
             </div>
         )
     }

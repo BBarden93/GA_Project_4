@@ -5,8 +5,16 @@ import {Button} from 'reactstrap';
 
 class Profile extends React.Component {
     state = {
+        questions: [],
         currentUser: httpClient.getCurrentUser(), 
-        questions: []
+    }
+    componentDidMount() {
+        httpClient.getAllQuestions().then((serverResponse) => {
+            console.log(serverResponse)
+            this.setState({
+                questions: serverResponse.data 
+            })
+        }) 
     }
     handleDeleteUserClick() {
         const userId = this.state.currentUser._id
@@ -18,7 +26,6 @@ class Profile extends React.Component {
     }
     render (){
         const {currentUser} = this.state 
-        console.log(currentUser)
         console.log(this.state.questions)
         return (
             <div className="editProfile">
@@ -26,8 +33,14 @@ class Profile extends React.Component {
                     <h2>{currentUser.name}</h2>
                     <h4>{currentUser.email}</h4>
                 </header>
-                {/* <ul>
-                    <li>questions asked by user</li>
+                {/* <ul> 
+                    {questions.map((q) => {
+                        return (
+                            <div key={q._id}  >
+                                <Link className="link"to={`/questions/${q._id}`}> {q.body} </Link><br />
+                            </div>
+                        )
+                    })}  
                 </ul> */}
                 <div className= "profileBtns">
                     <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
