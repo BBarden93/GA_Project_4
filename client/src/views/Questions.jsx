@@ -27,7 +27,7 @@ class Questions extends React.Component {
                 <ul> 
                     {questions.map((q) => {
                         return (
-                            <div key={q._id}  >
+                            <div key={q._id} >
                                 <Link className="link"to={`/questions/${q._id}`}> {q.body} </Link><br />
                             </div>
                         )

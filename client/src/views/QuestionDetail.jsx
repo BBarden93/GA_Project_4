@@ -78,7 +78,7 @@ class QuestionDetail extends React.Component {
                                     <p>
                                         {a.body} - {a.user.name} <br /> 
                                         {currentUser._id === a.user._id
-                                            ? <Button color="secondary" size="sm" type="button" onClick={this.handleAnswerDeleteClick.bind(this, a._id)}>Delete Answer</Button>
+                                            ? <Button className="deleteQBtn" color="secondary" size="sm" type="button" onClick={this.handleAnswerDeleteClick.bind(this, a._id)}>Delete Answer</Button>
                                             : null
                                         }
                                     </p>

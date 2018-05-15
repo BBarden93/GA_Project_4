@@ -10,7 +10,6 @@ class Profile extends React.Component {
     }
     componentDidMount() {
         httpClient.getAllQuestions().then((serverResponse) => {
-            console.log(serverResponse)
             this.setState({
                 questions: serverResponse.data 
             })
@@ -25,7 +24,8 @@ class Profile extends React.Component {
         })
     }
     render (){
-        const {currentUser} = this.state 
+        const {currentUser} = this.state
+        const {questions} = this.state  
         console.log(this.state.questions)
         return (
             <div className="editProfile">
@@ -42,6 +42,27 @@ class Profile extends React.Component {
                         )
                     })}  
                 </ul> */}
+                <ul>
+                {questions.length
+                    ? (
+                        questions.map((q) => {
+                            return (
+                                <div key={q._id} className="profileQuestionList">
+                                   
+                                        {currentUser._id === q.user._id
+                                            ? <li>{q.body} </li>
+                                            : null
+                                        }
+                                    
+                                </div>
+                            )
+                        })
+                    )
+                    : (
+                        null 
+                    )
+                }  
+                </ul>
                 <div className= "profileBtns">
                     <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
                     <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
