@@ -65,7 +65,7 @@ class Profile extends React.Component {
                 </ul>
                 <div className= "profileBtns">
                     <Button color="secondary" size="sm" className="link" to="/editprofile">Edit Profile</Button><br />
-                    <Button color="secondary" size="sm" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
+                    <Button color="secondary" size="sm" className="link" onClick={this.handleDeleteUserClick.bind(this)}>Delete Profile</Button> 
                 </div>
             </div>
         )
